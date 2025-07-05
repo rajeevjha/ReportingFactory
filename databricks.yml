@@ -1,0 +1,21 @@
+bundle:
+  name: reporting-factory
+
+targets:
+  dev:
+    mode: development
+    workspace:
+      host: https://<your-databricks-host>
+      root_path: /Users/you@company.com/reporting-factory
+    default: true
+
+resources:
+  pipelines:
+    s3_ingestion:
+      target: dev
+      pipeline:
+        name: "DLT_S3_Ingestion"
+        libraries:
+          - notebook: bundles/ingestion-bundle/pipelines/ingest_from_s3.dlt
+        configuration:
+          source_path: "s3://source-data/reports"

@@ -1,0 +1,7 @@
+import dlt
+from pyspark.sql.functions import current_timestamp
+
+@dlt.table(name="processed_sales_reports")
+def transform_sales():
+    df = dlt.read("raw_s3_reports")
+    return df.withColumn("processed_at", current_timestamp())

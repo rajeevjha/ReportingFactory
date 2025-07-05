@@ -1,0 +1,18 @@
+{
+  "sources": [
+    {
+      "type": "s3",
+      "path": "s3://your-bucket-name/reports/sales/",
+      "format": "csv"
+    },
+    {
+      "type": "database",
+      "url": "jdbc:mysql://db-host/reports",
+      "table": "daily_metrics"
+    },
+    {
+      "type": "api",
+      "url": "https://api.example.com/data"
+    }
+  ]
+}
